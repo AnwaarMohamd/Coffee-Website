@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | Bean & Brew</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-[#FAF7F2] text-[#3d2b1f]">
+    <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-[#e6d5c3]">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-[#4b2c20] tracking-tighter">BEAN&BREW</a>
+            <div class="flex items-center space-x-5">
+                <a href="products.html" class="hover:text-[#8b5e3c]">Keep Shopping</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 py-16">
+        <h1 class="text-3xl font-bold text-[#4b2c20] mb-12">Your Shopping Cart</h1>
+        
+        <div class="bg-white rounded-2xl shadow-sm border border-[#e6d5c3] overflow-hidden">
+            <div id="cart-items" class="divide-y divide-[#e6d5c3]">
+                </div>
+            
+            <div class="p-8 bg-[#fdfaf7] border-t border-[#e6d5c3]">
+                <div class="flex justify-between items-center mb-6">
+                    <span class="text-lg">Subtotal</span>
+                    <span id="cart-total" class="text-2xl font-bold text-[#4b2c20]">$0.00</span>
+                </div>
+                <button class="w-full bg-[#4b2c20] text-white py-4 rounded-xl font-bold hover:bg-[#6f4e37] transition shadow-lg">Checkout Now</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function renderCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const container = document.getElementById('cart-items');
+            
+            if(cart.length === 0) {
+                container.innerHTML = `<div class="p-12 text-center text-gray-500">Your cart is empty. <a href="products.html" class="text-[#8b5e3c] underline">Go shop!</a></div>`;
+                document.getElementById('cart-total').innerText = "$0.00";
+                return;
+            }
+
+            let total = 0;
+            container.innerHTML = cart.map(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                return `
+                    <div class="p-6 flex flex-col sm:flex-row items-center gap-6">
+                        <img src="${item.img}" class="w-24 h-24 object-cover rounded-lg">
+                        <div class="flex-grow text-center sm:text-left">
+                            <h3 class="font-bold text-[#4b2c20]">${item.name}</h3>
+                            <p class="text-sm text-[#8b5e3c]">$${item.price.toFixed(2)}</p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-sm">Qty: ${item.quantity}</span>
+                            <button onclick="removeItem(${item.id})" class="text-red-800 hover:text-red-600 p-2"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                        <div class="font-bold text-[#4b2c20] w-24 text-right">$${itemTotal.toFixed(2)}</div>
+                    </div>
+                `;
+            }).join('');
+            
+            document.getElementById('cart-total').innerText = `$${total.toFixed(2)}`;
+        }
+
+        function removeItem(id) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = cart.filter(item => item.id !== id);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        renderCart();
+    </script>
+</body>
+</html>

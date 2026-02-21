@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop All | Bean & Brew</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-[#FAF7F2] text-[#3d2b1f]">
+    <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-[#e6d5c3]">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-[#4b2c20] tracking-tighter">BEAN&BREW</a>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="index.html" class="hover:text-[#8b5e3c] transition">Home</a>
+                <a href="products.html" class="text-[#8b5e3c]">Shop Coffee</a>
+                <a href="login.html" class="hover:text-[#8b5e3c] transition">Account</a>
+            </div>
+            <div class="flex items-center space-x-5">
+                <a href="cart.html" class="relative group">
+                    <i class="fa-solid fa-cart-shopping text-xl group-hover:text-[#8b5e3c] transition"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-[#8b5e3c] text-white text-[10px] rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-[#f3e5d8] py-16 text-center">
+        <h1 class="text-4xl font-bold text-[#4b2c20]">All Collections</h1>
+        <p class="mt-2 text-[#8b5e3c]">Freshly roasted beans delivered to your door.</p>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="product-grid">
+            </div>
+    </main>
+
+    <script>
+        const products = [
+            { id: 1, name: "Ethiopian Yirgacheffe", price: 18.50, img: "images/ethiopian_Yirgacheffe.jpg", roast: "Light" },
+            { id: 2, name: "Sumatra Mandheling", price: 21.00, img: "images/sumatra_Mandheling.jpg", roast: "Dark" },
+            { id: 3, name: "Colombian Supremo", price: 16.00, img: "images/colombian_Supremo.jpg", roast: "Medium" },
+            { id: 4, name: "Guatemala Antigua", price: 19.50, img: "images/guatemala_Antigua.jpg", roast: "Medium" },
+            { id: 5, name: "French Roast Blend", price: 15.00, img: "images/french_Roast_Blend.jpg", roast: "Extra Dark" },
+            { id: 6, name: "Kenyan AA", price: 24.00, img: "images/Kenyan_AA.jpg", roast: "Light" },
+            { id: 7, name: "Breakfast Blend", price: 14.50, img: "images/Breakfast_Blend.jpg", roast: "Medium" },
+            { id: 8, name: "Espresso Reserve", price: 22.00, img: "images/Espresso_Reserve.jpg", roast: "Dark" }
+        ];
+
+        function displayProducts() {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = products.map(product => `
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-[#e6d5c3] group">
+                    <div class="relative overflow-hidden">
+                        <img src="${product.img}" alt="${product.name}" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 left-3 bg-[#4b2c20] text-white text-[10px] uppercase font-bold px-3 py-1 rounded-full">${product.roast}</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-[#4b2c20] mb-1">${product.name}</h3>
+                        <p class="text-[#8b5e3c] font-semibold mb-4">$${product.price.toFixed(2)}</p>
+                        <button onclick="addToCart(${product.id})" class="w-full bg-[#4b2c20] text-white py-2 rounded-lg hover:bg-[#8b5e3c] transition active:scale-95">Add to Cart</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            const existing = cart.find(item => item.id === id);
+            if(existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({...product, quantity: 1});
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            alert(`${product.name} added to cart!`);
+        }
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const count = cart.reduce((acc, item) => acc + item.quantity, 0);
+            document.getElementById('cart-count').innerText = count;
+        }
+
+        displayProducts();
+        updateCartCount();
+    </script>
+</body>
+</html>

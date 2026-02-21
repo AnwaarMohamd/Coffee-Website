@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean & Brew | Premium Coffee Roasters</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .slider-item {
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .slider-item.active {
+            display: block;
+        }
+
+        .brown-gradient {
+            background: linear-gradient(to right, #4b2c20, #6f4e37);
+        }
+    </style>
+</head>
+
+<body class="bg-[#FAF7F2] text-[#3d2b1f]">
+
+    <!------------------------------------------------ NavBar --------------------------------------------------->
+    <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-[#e6d5c3]">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-[#4b2c20] tracking-tighter">BEAN&BREW</a>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="index.html" class="hover:text-[#8b5e3c] transition">Home</a>
+                <a href="products.html" class="hover:text-[#8b5e3c] transition">Shop Coffee</a>
+                <a href="login.html" class="hover:text-[#8b5e3c] transition">Account</a>
+            </div>
+            <div class="flex items-center space-x-5">
+                <a href="cart.html" class="relative group">
+                    <i class="fa-solid fa-cart-shopping text-xl group-hover:text-[#8b5e3c] transition"></i>
+                    <span id="cart-count"
+                        class="absolute -top-2 -right-2 bg-[#8b5e3c] text-white text-[10px] rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative h-[500px] md:h-[700px] overflow-hidden bg-[#4b2c20]">
+        <div id="slider">
+            <div class="slider-item active relative h-full">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80"
+                    class="w-full h-full object-cover opacity-60">
+                <div class="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Freshly Roasted Artisan Coffee</h1>
+                    <p class="text-lg md:text-xl mb-8 max-w-2xl">Sourced ethically from the highlands, roasted in small
+                        batches for the perfect cup.</p>
+                    <a href="products.html"
+                        class="bg-[#8b5e3c] hover:bg-[#6f4e37] px-8 py-3 rounded-full transition duration-300 transform hover:scale-105 mb">Shop
+                        Now</a>
+                </div>
+            </div>
+            <div class="slider-item relative h-full">
+                <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1600&q=80"
+                    class="w-full h-full object-cover opacity-60">
+                <div class="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Brew Perfection at Home</h1>
+                    <p class="text-lg md:text-xl mb-8 max-w-2xl">Explore our premium selection of brewing equipment and
+                        beans.</p>
+                    <a href="products.html"
+                        class="bg-[#d2b48c] text-[#4b2c20] hover:bg-white px-8 py-3 rounded-full transition">View
+                        Equipment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!---------------------------------------------- Explore Our World ------------------------------------------>
+    <section class="py-20 max-w-7xl mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-4 text-[#4b2c20]">Explore Our World</h2>
+        <p class="text-center text-[#8b5e3c] mb-12 italic">Curated essentials for a refined lifestyle.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <a href="furniture.html"
+                class="group relative overflow-hidden rounded-2xl h-[400px] shadow-lg transition-transform hover:-translate-y-2">
+                <img src="images/artisan_Furniture.png"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-[#4b2c20]/90 to-transparent flex flex-col justify-end p-8">
+                    <h3 class="text-white text-2xl font-bold">Artisan Furniture</h3>
+                    <p
+                        class="text-cream-100 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#f3e5d8]">
+                        Hand-carved oak & walnut pieces.</p>
+                </div>
+            </a>
+
+            <a href="decor.html"
+                class="group relative overflow-hidden rounded-2xl h-[400px] shadow-lg transition-transform hover:-translate-y-2">
+                <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-[#4b2c20]/90 to-transparent flex flex-col justify-end p-8">
+                    <h3 class="text-white text-2xl font-bold">Minimalist Decor</h3>
+                    <p
+                        class="text-cream-100 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#f3e5d8]">
+                        Earthy tones for your sanctuary.</p>
+                </div>
+            </a>
+
+            <a href="accessories.html"
+                class="group relative overflow-hidden rounded-2xl h-[400px] shadow-lg transition-transform hover:-translate-y-2">
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-[#4b2c20]/90 to-transparent flex flex-col justify-end p-8">
+                    <h3 class="text-white text-2xl font-bold">Brew Accessories</h3>
+                    <p
+                        class="text-cream-100 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#f3e5d8]">
+                        The tools for the perfect ritual.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-------------------------------------------------- Guest Experiences ---------------------------------------------------->
+    <section
+        class="py-24 relative overflow-hidden bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] bg-[#3d2b1f]">
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <h2 class="text-3xl font-bold text-center mb-16 text-white">Guest Experiences</h2>
+
+            <div class="relative group">
+                <div id="review-slider"
+                    class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-6 pb-12 transition-all duration-500 ease-in-out">
+
+                    <div class="min-w-full md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.33%-16px)] snap-center">
+                        <div
+                            class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-3xl shadow-2xl h-full flex flex-col text-white">
+                            <div class="flex text-amber-400 mb-4"><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p class="text-lg italic mb-6 leading-relaxed">"The texture of the walnut table perfectly
+                                complements my morning espresso. A true aesthetic masterpiece."</p>
+                            <div class="mt-auto flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-[#8b5e3c] rounded-full flex items-center justify-center font-bold">
+                                    JD</div>
+                                <div>
+                                    <h4 class="font-bold">Julianne Devis</h4>
+                                    <p class="text-xs opacity-70">Interior Designer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="min-w-full md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.33%-16px)] snap-center">
+                        <div
+                            class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-3xl shadow-2xl h-full flex flex-col text-white">
+                            <div class="flex text-amber-400 mb-4"><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p class="text-lg italic mb-6 leading-relaxed">"I've never seen shipping so fast for
+                                furniture. Everything arrived in sustainable packaging."</p>
+                            <div class="mt-auto flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-[#6f4e37] rounded-full flex items-center justify-center font-bold">
+                                    MR</div>
+                                <div>
+                                    <h4 class="font-bold">Marcus Riley</h4>
+                                    <p class="text-xs opacity-70">Loyal Customer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="min-w-full md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.33%-16px)] snap-center">
+                        <div
+                            class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-3xl shadow-2xl h-full flex flex-col text-white">
+                            <div class="flex text-amber-400 mb-4"><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-lg italic mb-6 leading-relaxed">
+                                "I love how this furniture instantly elevates my home vibe. The quality and design
+                                exceeded my expectations!"
+                            </p>
+                            <div class="mt-auto flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-[#8b5e3c] rounded-full flex items-center justify-center font-bold">
+                                    JS
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Julia Sanders</h4>
+                                    <p class="text-xs opacity-70">Happy Customer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="min-w-full md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.33%-16px)] snap-center">
+                        <div
+                            class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-3xl shadow-2xl h-full flex flex-col text-white">
+                            <div class="flex text-amber-400 mb-4"><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p class="text-lg italic mb-6 leading-relaxed">"I've never seen shipping so fast for
+                                furniture. Everything arrived in sustainable packaging."</p>
+                            <div class="mt-auto flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-[#6f4e37] rounded-full flex items-center justify-center font-bold">
+                                    MR</div>
+                                <div>
+                                    <h4 class="font-bold">Marcus Riley</h4>
+                                    <p class="text-xs opacity-70">Loyal Customer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="min-w-full md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.33%-16px)] snap-center">
+                        <div
+                            class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-3xl shadow-2xl h-full flex flex-col text-white">
+                            <div class="flex text-amber-400 mb-4"><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p class="text-lg italic mb-6 leading-relaxed">"Their ceramic mugs are weighted perfectly.
+                                It has changed how I enjoy my daily medium roast."</p>
+                            <div class="mt-auto flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-[#d2b48c] rounded-full flex items-center justify-center font-bold text-[#4b2c20]">
+                                    SL</div>
+                                <div>
+                                    <h4 class="font-bold">Sophia Lee</h4>
+                                    <p class="text-xs opacity-70">Lifestyle Blogger</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="scrollSlider(-300)"
+                    class="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 bg-white/20 hover:bg-white/40 p-4 rounded-full backdrop-blur-md transition hidden md:block">
+                    <i class="fa-solid fa-chevron-left text-white"></i>
+                </button>
+                <button onclick="scrollSlider(300)"
+                    class="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 bg-white/20 hover:bg-white/40 p-4 rounded-full backdrop-blur-md transition hidden md:block">
+                    <i class="fa-solid fa-chevron-right text-white"></i>
+                </button>
+
+                <div class="flex justify-center gap-2 mt-8">
+                    <div class="w-3 h-3 bg-white/50 rounded-full cursor-pointer hover:bg-white transition"
+                        onclick="scrollToIndex(0)"></div>
+                    <div class="w-3 h-3 bg-white/20 rounded-full cursor-pointer hover:bg-white transition"
+                        onclick="scrollToIndex(1)"></div>
+                    <div class="w-3 h-3 bg-white/20 rounded-full cursor-pointer hover:bg-white transition"
+                        onclick="scrollToIndex(2)"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+        }
+    </style>
+
+    <script>
+        const slider = document.getElementById('review-slider');
+        function scrollSlider(amount) {
+            slider.scrollLeft += amount;
+        }
+        function scrollToIndex(idx) {
+            const width = slider.offsetWidth;
+            slider.scrollTo({ left: width * idx, behavior: 'smooth' });
+        }
+    </script>
+
+    <!-------------------------------------------------- Our Story --------------------------------------------------->
+    <section class="py-20 bg-[#f3e5d8]">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
+                    class="rounded-3xl shadow-2xl">
+            </div>
+            <div class="md:w-1/2">
+                <span class="text-[#8b5e3c] font-bold uppercase tracking-widest">Our Story</span>
+                <h2 class="text-4xl font-bold mt-2 mb-6 text-[#4b2c20]">Crafting the perfect cup since 1994.</h2>
+                <p class="text-lg text-[#5d4037] mb-6">We believe coffee is more than just a drink. It's an experience,
+                    a morning ritual, and a moment of connection. Our beans are sourced from sustainable farms that
+                    prioritize quality and ecology.</p>
+                <ul class="space-y-3 mb-8">
+                    <li><i class="fa-solid fa-check text-[#8b5e3c] mr-2"></i> 100% Organic Arabica Beans</li>
+                    <li><i class="fa-solid fa-check text-[#8b5e3c] mr-2"></i> Small Batch Roasted Daily</li>
+                    <li><i class="fa-solid fa-check text-[#8b5e3c] mr-2"></i> Direct Trade Partnerships</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!--------------------------------------------------- Footer ---------------------------------------------------->
+    <footer class="bg-[#2a1b15] text-[#d2b48c] py-16">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-1">
+                <h3 class="text-2xl font-bold text-white mb-6">BEAN&BREW</h3>
+                <p class="text-sm opacity-80 leading-relaxed">Bringing the finest coffee from around the globe directly
+                    to your doorstep. We roast with passion.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-wider">Quick Links</h4>
+                <ul class="space-y-4">
+                    <li><a href="products.html" class="hover:text-white transition">Shop All</a></li>
+                    <li><a href="login.html" class="hover:text-white transition">My Account</a></li>
+                    <li><a href="cart.html" class="hover:text-white transition">Cart</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-wider">Follow Us</h4>
+                <div class="flex space-x-6 text-xl">
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-wider">Newsletter</h4>
+                <div class="flex">
+                    <input type="text" placeholder="Email Address"
+                        class="bg-[#3d2b1f] border-none px-4 py-2 w-full rounded-l-md focus:ring-1 ring-[#8b5e3c]">
+                    <button class="bg-[#8b5e3c] text-white px-4 py-2 rounded-r-md hover:bg-[#6f4e37]">Join</button>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-white/10 mt-12 pt-8 text-center text-xs opacity-50">
+            &copy; 2026 BEAN&BREW Coffee Roasters. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Slider Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slider-item');
+        function showSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 5000);
+
+        // Global Cart Count Update
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const count = cart.reduce((acc, item) => acc + item.quantity, 0);
+            document.getElementById('cart-count').innerText = count;
+        }
+        updateCartCount();
+    </script>
+</body>
+
+</html>

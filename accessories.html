@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brew Accessories | Bean & Brew</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#FAF7F2] text-[#3d2b1f]">
+    <nav class="bg-white p-4 border-b border-[#e6d5c3]"><div class="max-w-7xl mx-auto font-bold"><a href="index.html">BEAN&BREW</a></div></nav>
+
+    <header class="py-20 bg-[#6f4e37] text-white text-center">
+        <h1 class="text-5xl font-bold">Brewing Rituals</h1>
+        <p class="opacity-80 mt-4">Precision tools for the perfect extraction.</p>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-[#e6d5c3] text-center">
+                <img src="images/WDT_Tool.jpg" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="font-bold">WDT tool</h3>
+                <p class="text-[#8b5e3c] mb-4">$25.00</p>
+                <button onclick="addToCart(301, 'WDT tool', 25, 'images/WDT_Tool.jpg')" class="w-full py-2 bg-[#4b2c20] text-white rounded-md hover:bg-[#8b5e3c] transition">Add to Cart</button>
+            </div>
+
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-[#e6d5c3] text-center">
+                <img src="images/coffee_Scales.jpg" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="font-bold">Coffee Scales</h3>
+                <p class="text-[#8b5e3c] mb-4">$100.00</p>
+                <button onclick="addToCart(301, 'WDT tool', 100, 'images/coffee_Scales.jpg')" class="w-full py-2 bg-[#4b2c20] text-white rounded-md hover:bg-[#8b5e3c] transition">Add to Cart</button>
+            </div>
+
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-[#e6d5c3] text-center">
+                <img src="images/flair_Pro.jpg" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="font-bold">Flair pro</h3>
+                <p class="text-[#8b5e3c] mb-4">$150.00</p>
+                <button onclick="addToCart(301, 'Flair pro', 150, 'images/flair_Pro.jpg')" class="w-full py-2 bg-[#4b2c20] text-white rounded-md hover:bg-[#8b5e3c] transition">Add to Cart</button>
+            </div>
+
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-[#e6d5c3] text-center">
+                <img src="images/coffee_Grinder_with_Digital_Timer_Display.jpg" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="font-bold">Coffee Grinder with Digital Timer Display</h3>
+                <p class="text-[#8b5e3c] mb-4">$280.00</p>
+                <button onclick="addToCart(301, 'Coffee Grinder with Digital Timer Display', 280, 'images/coffee_Grinder_with_Digital_Timer_Display.jpg')" class="w-full py-2 bg-[#4b2c20] text-white rounded-md hover:bg-[#8b5e3c] transition">Add to Cart</button>
+            </div>
+
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-[#e6d5c3] text-center">
+                <img src="images/ceramic_Coffee_Dripper.jpg" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="font-bold">Ceramic Coffee Dripper</h3>
+                <p class="text-[#8b5e3c] mb-4">$90.00</p>
+                <button onclick="addToCart(301, 'Ceramic Coffee Dripper', 90, 'images/ceramic_Coffee_Dripper.jpg')" class="w-full py-2 bg-[#4b2c20] text-white rounded-md hover:bg-[#8b5e3c] transition">Add to Cart</button>
+            </div>
+            </div>
+            
+    </main>
+
+    <script>
+        function addToCart(id, name, price, img) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({id, name, price, img, quantity: 1});
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(name + " added!");
+        }
+    </script>
+</body>
+</html>

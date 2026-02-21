@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan Furniture | Bean & Brew</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-[#FAF7F2] text-[#3d2b1f]">
+    <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-[#e6d5c3]">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-[#4b2c20]">BEAN&BREW</a>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="index.html" class="hover:text-[#8b5e3c]">Home</a>
+                <a href="products.html" class="hover:text-[#8b5e3c]">Shop Coffee</a>
+                <a href="cart.html" class="relative"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-20 bg-[#4b2c20] text-center text-white">
+        <h1 class="text-5xl font-bold mb-4">Artisan Furniture</h1>
+        <p class="text-[#d2b48c] max-w-xl mx-auto px-4">Handcrafted oak, walnut, and leather pieces designed to turn your coffee corner into a sanctuary.</p>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10" id="furniture-grid">
+            </div>
+    </main>
+
+    <script>
+        const furniture = [
+            { id: 101, name: "Walnut Coffee Table", price: 320, img: "images/walnut_Coffee_Table.jpg" },
+            { id: 102, name: "Leather Reading Chair", price: 450, img: "images/leather_Reading_Chair.png" },
+            { id: 103, name: "Minimalist Bookcase", price: 210, img: "images/minimalist_Bookcase.png" },
+            { id: 104, name: "Solid Oak Stool", price: 85, img: "images/solid_Oak_Stool.png" },
+            { id: 105, name: "Rustic Sideboard", price: 580, img: "images/rustic_Sideboard.png" },
+            { id: 106, name: "Brewing Station Desk", price: 390, img: "images/brewing_Station_Desk.png" }
+        ];
+
+        const grid = document.getElementById('furniture-grid');
+        grid.innerHTML = furniture.map(p => `
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#e6d5c3] group hover:shadow-2xl transition duration-500">
+                <div class="h-80 overflow-hidden"><img src="${p.img}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700"></div>
+                <div class="p-6">
+                    <h3 class="font-bold text-xl text-[#4b2c20]">${p.name}</h3>
+                    <p class="text-[#8b5e3c] text-lg mb-4">$${p.price.toFixed(2)}</p>
+                    <button onclick="addToCart(${p.id}, '${p.name}', ${p.price}, '${p.img}')" class="w-full py-3 bg-[#4b2c20] text-white rounded-xl hover:bg-[#6f4e37] transition font-bold">Add to Cart</button>
+                </div>
+            </div>
+        `).join('');
+
+        function addToCart(id, name, price, img) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existing = cart.find(i => i.id === id);
+            if(existing) existing.quantity++;
+            else cart.push({id, name, price, img, quantity: 1});
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(name + " added!");
+        }
+    </script>
+</body>
+</html>
